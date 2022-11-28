@@ -29,7 +29,7 @@
             >Web<span class="logo-black">Studio</span></a
           >
           <ul class="list header-list">
-            <li class="item">
+            <li class="item menu-line">
               <a class="link header-nav-link current" href="./index.html"
                 >Студія</a
               >
@@ -74,9 +74,18 @@
           <div class="container">
             <div class="hero-container">
               <h1 class="hero-title">Ефективні рішення для вашого бізнесу</h1>
-              <button class="hero-button" type="button">
+              <button class="hero-button" type="button" data-modal-open>
                 Замовити послугу
               </button>
+              <!-- Модальне вікно -->
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+          <div class="close-btn" data-modal-close>
+              <svg class="close-svg">
+                  <use href="./images/icons.svg#icon-x"></use>
+              </svg></div>
+      </div>
+  </div>
             </div>
           </div>
         </div>
@@ -144,31 +153,41 @@
           <h2 class="section-title-work">Чим ми займаємося</h2>
           <ul class="list work-list">
             <li>
-              <img
-                class="work-card"
-                src="./images/work1.jpg"
-                alt="розробник працює над програмою"
-                width="370"
-                height="294"
-              />
+              <div class="thumb-img">
+                <img
+                  class="work-card"
+                  src="./images/work1.jpg"
+                  alt="розробник працює над програмою"
+                  width="370"
+                  height="294"
+                  />
+                  <p class="label">Десктопні додатки</p>
+              </div>
+              
             </li>
             <li>
-              <img
-                class="work-card"
-                src="./images/work2.jpg"
-                alt="розробник створює мобільний додаток"
-                width="370"
-                height="294"
-              />
+              <div class="thumb-img">
+                <img
+                  class="work-card"
+                  src="./images/work2.jpg"
+                  alt="розробник створює мобільний додаток"
+                  width="370"
+                  height="294"
+                />
+                <p class="label">Мобільні додатки</p>
+              </div>
             </li>
             <li>
-              <img
-                class="work-card"
-                src="./images/work3.jpg"
-                alt="дизайнер обирає кольори"
-                width="370"
-                height="294"
-              />
+              <div class="thumb-img">
+                <img
+                  class="work-card"
+                  src="./images/work3.jpg"
+                  alt="дизайнер обирає кольори"
+                  width="370"
+                  height="294"
+                />
+                <p class="label">Дизайнерські рішення</p> 
+              </div>
             </li>
           </ul>
         </div>
@@ -471,5 +490,7 @@
         </div>
       </div>
     </footer>
+    <script src="./js/modal.js"></script>
+  </body>
   </body>
 </html>

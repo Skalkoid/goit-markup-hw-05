@@ -11,6 +11,8 @@
   --team-background-color: #f5f4fa;
   --color-borders: #eeeeee;
   --color-line: #ececec;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 /*!Робимо reset за рекомендаціями   Андрія Данилко (не Сердючки!!!)*/
@@ -130,6 +132,25 @@ img {
   color: var(--primary-text-color);
 }
 
+.menu-line {
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+
+.menu-line::after {
+  content: "";
+
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 4px;
+  left: 0;
+  bottom: 0;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
 .header-contact {
   display: flex;
   align-items: center;
@@ -158,6 +179,7 @@ img {
 .header-contact-link:hover,
 .header-contact-link:focus {
   color: var(--accent-color);
+  transition:  250ms var(--timing-function)
 }
 
 .header-nav-link.current {
@@ -218,10 +240,73 @@ img {
   margin: 0 auto;
 }
 
+/* <!-- Модальне вікно --> */
+
+.backdrop {
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity 250ms var(--timing-function);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  
+}
+
+.modal {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 528px;
+  min-height: 581px;
+
+  background-color: #ffffff;
+  transform: scaleY();
+}
+
+.close-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: 8px;
+  margin-top: 8px;
+  cursor: pointer;
+  
+}
+.close-svg{
+  width: 18px;
+  height: 18px;
+  color: currentColor;
+}
+
+
+
+
+
+
+
 .hero-button:hover,
 .hero-button:focus {
   background-color: var(--white-text-color);
   color: var(--accent-color);
+  transition:  250ms var(--timing-function)
 }
 /* герой-підложка */
 .ovarlay {
@@ -235,6 +320,7 @@ img {
     ),
     url(../images/hero_fon.jpg);
   background-color: var(--bgr-color);
+
 }
 /* блок Переваги */
 
@@ -306,6 +392,30 @@ img {
   height: auto;
   display: block;
 }
+
+.thumb-img{
+  position: relative;
+  width: 370px;
+  /* outline: 1px solid red */
+}
+.thumb-img >.label {
+  /* outline: 1px solid red; */
+  position: absolute;
+
+  width: 370px;
+  bottom: 0;
+  padding: 27px 0;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white-text-color);
+  background-color: rgba(47, 48, 58, 0.8)
+}
+
 
 /* команда */
 
@@ -384,6 +494,7 @@ img {
 .social-link:focus {
   background-color: #2196f3;
   color: #ffffff;
+  transition: 250ms var(--timing-function)
 }
 
 .social-icon {
@@ -434,6 +545,7 @@ img {
 .client-link:focus {
   color: #2196f3;
   border: 1px solid #2196f3;
+  transition:  250ms var(--timing-function)
 }
 /* ----------------ПОДВАЛ----------------- */
 .footer {
@@ -493,6 +605,7 @@ img {
 .footer-contact-link:hover,
 .footer-contact-link:focus {
   color: var(--accent-color);
+  transition:  250ms var(--timing-function)
 }
 
 .primary-footer {
@@ -557,6 +670,7 @@ img {
 .footer-link:hover,
 .footer-link:focus {
   background-color: #2196f3;
+  transition:  250ms var(--timing-function)
 }
 
 /* ---------------------------------------------- */
@@ -592,6 +706,7 @@ img {
   color: var(--white-text-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+    transition:  250ms var(--timing-function)
 }
 
 .portfolio-list {
@@ -606,6 +721,7 @@ img {
 .portfolio-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+    transition:  250ms var(--timing-function)
   
 }
 
@@ -643,3 +759,55 @@ portfolio-list > .list {
   line-height: 1.87;
   color: var(--secondary-text-color);
  }
+
+ .card{
+  background: var(--white-text-color); 
+  cursor: pointer;
+  transition: box-shadow 250ms var(--timing-function);
+}
+.card-thumb{
+  position: relative;
+  overflow: hidden;
+  
+}
+.card-thumb::before{
+  display: inline-block;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(33, 150, 243, 0.9);
+  transform: translateY(100%);
+    cursor: pointer;
+    transition:  250ms var(--timing-function);    
+}
+.card:hover .card-thumb::before{
+  transform: translateY(0);
+  cursor: pointer;
+  transition:  250ms var(--timing-function)
+}
+
+.card:hover .card-thumb-text,
+.card:hover .card-thumb-text {
+  transform: translateY(0);
+  cursor: pointer;
+  transition:  250ms var(--timing-function)
+}
+
+.card-thumb-text{
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+  top: 0;
+  left: 0;
+  padding: 63px 24px;
+  transform: translateY(100%);
+  transition: transform 250ms var(--timing-function);
+}
