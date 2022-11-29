@@ -306,7 +306,7 @@ img {
 .hero-button:focus {
   background-color: var(--white-text-color);
   color: var(--accent-color);
-  transition:  250ms var(--timing-function)
+  transition:  250ms var(--timing-function);
 }
 /* герой-підложка */
 .ovarlay {
